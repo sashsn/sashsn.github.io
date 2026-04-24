@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-label="Theatre ticket reservation system architecture: Java Swing GUI, service layer, JDBC, MySQL database">
+  <defs>
+    <pattern id="grid-th" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <marker id="arr-th" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#79c0ff"/>
+    </marker>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid-th); }
+      .stage-label { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+      .label-sub { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; }
+      .label-dim { fill: #8a9bb0; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+      .box { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .box-app { fill: #152635; stroke: #79c0ff; stroke-width: 1.6; }
+      .box-svc { fill: #16222c; stroke: #7ee787; stroke-width: 1.6; }
+      .box-db { fill: #1a1a2b; stroke: #d2a8ff; stroke-width: 1.6; }
+      .edge { stroke: #79c0ff; stroke-width: 1.6; fill: none; }
+      .chip { fill: #0f1721; stroke: #223244; }
+      .chip-text { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="960" height="520"/>
+  <rect class="grid" width="960" height="520"/>
+
+  <text class="title" x="36" y="42">THEATRE TICKET RESERVATION / LAYERED DESKTOP APP</text>
+  <text class="title-sub" x="36" y="60">JAVA SWING . SERVICE LAYER . JDBC . MYSQL</text>
+
+  <text class="stage-label" x="160" y="102" text-anchor="middle">PRESENTATION</text>
+  <text class="stage-label" x="480" y="102" text-anchor="middle">DOMAIN + SERVICES</text>
+  <text class="stage-label" x="800" y="102" text-anchor="middle">PERSISTENCE</text>
+
+  <!-- Presentation layer -->
+  <rect class="box-app" x="60" y="130" width="200" height="110" rx="12"/>
+  <text class="label" x="76" y="158">Login / customer flow</text>
+  <text class="label-sub" x="76" y="178">browse shows, pick seats,</text>
+  <text class="label-sub" x="76" y="192">confirm booking, receipt</text>
+  <rect class="chip" x="76" y="208" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="103" y="222" text-anchor="middle">SWING</text>
+  <rect class="chip" x="136" y="208" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="163" y="222" text-anchor="middle">AWT</text>
+
+  <rect class="box-app" x="60" y="260" width="200" height="110" rx="12"/>
+  <text class="label" x="76" y="288">Admin flow</text>
+  <text class="label-sub" x="76" y="308">movies, showtimes,</text>
+  <text class="label-sub" x="76" y="322">theatre + seat maps,</text>
+  <text class="label-sub" x="76" y="336">booking audit</text>
+  <rect class="chip" x="76" y="346" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="111" y="360" text-anchor="middle">JAR APP</text>
+
+  <!-- Service layer -->
+  <rect class="box-svc" x="340" y="130" width="280" height="240" rx="12"/>
+  <text class="label" x="356" y="158">Service layer</text>
+  <text class="label-sub" x="356" y="178">domain logic for reservations,</text>
+  <text class="label-sub" x="356" y="192">seat locking, pricing, and</text>
+  <text class="label-sub" x="356" y="206">movie / show catalog</text>
+
+  <rect x="356" y="220" width="248" height="36" rx="8" fill="#0e1a24" stroke="#2a3c50"/>
+  <text class="label-sub" x="368" y="242">ReservationService . book, cancel, lock</text>
+
+  <rect x="356" y="262" width="248" height="36" rx="8" fill="#0e1a24" stroke="#2a3c50"/>
+  <text class="label-sub" x="368" y="284">CatalogService . movies, shows, theatres</text>
+
+  <rect x="356" y="304" width="248" height="36" rx="8" fill="#0e1a24" stroke="#2a3c50"/>
+  <text class="label-sub" x="368" y="326">AuthService . login, role gating</text>
+
+  <!-- Persistence layer -->
+  <rect class="box-db" x="700" y="130" width="200" height="110" rx="12"/>
+  <text class="label" x="716" y="158">JDBC DAO layer</text>
+  <text class="label-sub" x="716" y="178">prepared statements,</text>
+  <text class="label-sub" x="716" y="192">connection pooling,</text>
+  <text class="label-sub" x="716" y="206">transaction boundaries</text>
+  <rect class="chip" x="716" y="212" width="40" height="20" rx="5"/>
+  <text class="chip-text" x="736" y="226" text-anchor="middle">JDBC</text>
+
+  <rect class="box-db" x="700" y="260" width="200" height="180" rx="12"/>
+  <text class="label" x="716" y="288">MySQL</text>
+  <text class="label-sub" x="716" y="308">tables: users, movies,</text>
+  <text class="label-sub" x="716" y="322">shows, theatres, seats,</text>
+  <text class="label-sub" x="716" y="336">reservations, payments</text>
+  <rect class="chip" x="716" y="346" width="40" height="20" rx="5"/>
+  <text class="chip-text" x="736" y="360" text-anchor="middle">SQL</text>
+  <rect class="chip" x="762" y="346" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="797" y="360" text-anchor="middle">INNODB</text>
+  <text class="label-sub" x="716" y="388">seat lock + availability</text>
+  <text class="label-sub" x="716" y="402">enforced at the DB layer</text>
+  <text class="label-sub" x="716" y="416">via unique constraints +</text>
+  <text class="label-sub" x="716" y="430">transactional booking</text>
+
+  <!-- Arrows -->
+  <path class="edge" d="M 260 185 L 340 200" marker-end="url(#arr-th)"/>
+  <path class="edge" d="M 260 315 L 340 300" marker-end="url(#arr-th)"/>
+  <path class="edge" d="M 620 240 L 700 190" marker-end="url(#arr-th)"/>
+  <path class="edge" d="M 620 290 L 700 220" marker-end="url(#arr-th)"/>
+  <path class="edge" d="M 800 240 L 800 260" marker-end="url(#arr-th)"/>
+
+  <rect x="36" y="460" width="888" height="40" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-dim" x="56" y="484">// team project. private repo. packaged as a runnable JAR with a bundled MySQL schema.</text>
+</svg>

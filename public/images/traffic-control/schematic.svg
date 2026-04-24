@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-label="Traffic control schematic: PIC16F877A, 4 MHz crystal, 6 LED signals, pedestrian button, pedestrian walk/stop indicators">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid); }
+      .wire { stroke: #79c0ff; stroke-width: 1.6; fill: none; stroke-linecap: square; }
+      .wire-red { stroke: #ff6b6b; stroke-width: 1.8; fill: none; }
+      .wire-amber { stroke: #ffb86b; stroke-width: 1.8; fill: none; }
+      .wire-green { stroke: #7ee787; stroke-width: 1.8; fill: none; }
+      .wire-ground { stroke: #64748b; stroke-width: 1.6; fill: none; }
+      .chip { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .chip-label { fill: #e2ebf5; font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 11px; }
+      .pin-label { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+      .label-dim { fill: #8a9bb0; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+      .label-accent { fill: #79c0ff; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.04em; }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+      .node { fill: #79c0ff; }
+      .resistor { fill: #16222c; stroke: #d2a8ff; stroke-width: 1.4; }
+      .cap { stroke: #ffb86b; stroke-width: 1.8; fill: none; }
+      .crystal { fill: #1a2633; stroke: #7ee787; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="960" height="620"/>
+  <rect class="grid" width="960" height="620"/>
+
+  <text class="title" x="36" y="42">TRAFFIC CONTROL / PIC16F877A</text>
+  <text class="title-sub" x="36" y="60">4 MHz HS CRYSTAL . 6 LED SIGNALS . PEDESTRIAN REQUEST</text>
+
+  <!-- Power rails -->
+  <line class="wire-red" x1="40" y1="92" x2="920" y2="92"/>
+  <text class="label" x="40" y="84">+5V</text>
+  <line class="wire-ground" x1="40" y1="560" x2="920" y2="560"/>
+  <text class="label-dim" x="40" y="578">GND</text>
+
+  <!-- PIC chip body -->
+  <rect class="chip" x="300" y="140" width="260" height="340" rx="10"/>
+  <text class="chip-label" x="430" y="170" text-anchor="middle">PIC16F877A</text>
+  <text class="label-dim" x="430" y="186" text-anchor="middle">DIP-40</text>
+
+  <!-- Left pins -->
+  <line class="wire" x1="270" y1="210" x2="300" y2="210"/>
+  <text class="pin-label" x="308" y="214">MCLR</text>
+  <line class="wire" x1="270" y1="240" x2="300" y2="240"/>
+  <text class="pin-label" x="308" y="244">OSC1</text>
+  <line class="wire" x1="270" y1="270" x2="300" y2="270"/>
+  <text class="pin-label" x="308" y="274">OSC2</text>
+  <line class="wire" x1="270" y1="310" x2="300" y2="310"/>
+  <text class="pin-label" x="308" y="314">VDD</text>
+  <line class="wire" x1="270" y1="340" x2="300" y2="340"/>
+  <text class="pin-label" x="308" y="344">VSS</text>
+  <line class="wire" x1="270" y1="380" x2="300" y2="380"/>
+  <text class="pin-label" x="308" y="384">RB0/INT</text>
+
+  <!-- Right pins -->
+  <text class="pin-label" x="552" y="214" text-anchor="end">RB1</text>
+  <line class="wire" x1="560" y1="210" x2="600" y2="210"/>
+  <text class="pin-label" x="552" y="244" text-anchor="end">RB2</text>
+  <line class="wire" x1="560" y1="240" x2="600" y2="240"/>
+  <text class="pin-label" x="552" y="274" text-anchor="end">RB3</text>
+  <line class="wire" x1="560" y1="270" x2="600" y2="270"/>
+  <text class="pin-label" x="552" y="304" text-anchor="end">RB4</text>
+  <line class="wire" x1="560" y1="300" x2="600" y2="300"/>
+  <text class="pin-label" x="552" y="334" text-anchor="end">RB5</text>
+  <line class="wire" x1="560" y1="330" x2="600" y2="330"/>
+  <text class="pin-label" x="552" y="364" text-anchor="end">RB6</text>
+  <line class="wire" x1="560" y1="360" x2="600" y2="360"/>
+  <text class="pin-label" x="552" y="414" text-anchor="end">RD0</text>
+  <line class="wire" x1="560" y1="410" x2="600" y2="410"/>
+  <text class="pin-label" x="552" y="444" text-anchor="end">RD1</text>
+  <line class="wire" x1="560" y1="440" x2="600" y2="440"/>
+
+  <!-- MCLR pull-up -->
+  <line class="wire" x1="220" y1="210" x2="270" y2="210"/>
+  <rect class="resistor" x="178" y="200" width="42" height="20" rx="3"/>
+  <text class="label-dim" x="199" y="214" text-anchor="middle">10k</text>
+  <line class="wire-red" x1="178" y1="210" x2="140" y2="210"/>
+  <line class="wire-red" x1="140" y1="210" x2="140" y2="92"/>
+
+  <!-- Crystal network on OSC1/OSC2 -->
+  <line class="wire" x1="200" y1="240" x2="270" y2="240"/>
+  <line class="wire" x1="200" y1="270" x2="270" y2="270"/>
+  <rect class="crystal" x="168" y="246" width="34" height="20" rx="3"/>
+  <text class="label-dim" x="185" y="260" text-anchor="middle">4MHz</text>
+  <line class="wire" x1="185" y1="246" x2="185" y2="240"/>
+  <line class="wire" x1="185" y1="266" x2="185" y2="270"/>
+  <!-- 22 pF caps -->
+  <line class="cap" x1="155" y1="240" x2="155" y2="234"/>
+  <line class="cap" x1="147" y1="238" x2="163" y2="238"/>
+  <line class="cap" x1="147" y1="232" x2="163" y2="232"/>
+  <line class="wire" x1="155" y1="240" x2="185" y2="240"/>
+  <line class="wire-ground" x1="155" y1="234" x2="155" y2="210"/>
+  <line class="wire-ground" x1="110" y1="234" x2="155" y2="234"/>
+
+  <line class="cap" x1="155" y1="270" x2="155" y2="276"/>
+  <line class="cap" x1="147" y1="272" x2="163" y2="272"/>
+  <line class="cap" x1="147" y1="278" x2="163" y2="278"/>
+  <line class="wire" x1="155" y1="270" x2="185" y2="270"/>
+  <line class="wire-ground" x1="155" y1="276" x2="155" y2="560"/>
+
+  <!-- VDD / VSS -->
+  <line class="wire-red" x1="270" y1="310" x2="250" y2="310"/>
+  <line class="wire-red" x1="250" y1="310" x2="250" y2="92"/>
+  <line class="wire-ground" x1="270" y1="340" x2="250" y2="340"/>
+  <line class="wire-ground" x1="250" y1="340" x2="250" y2="560"/>
+
+  <!-- Pedestrian button with pull-up on RB0 -->
+  <line class="wire" x1="270" y1="380" x2="220" y2="380"/>
+  <rect class="resistor" x="178" y="370" width="42" height="20" rx="3"/>
+  <text class="label-dim" x="199" y="384" text-anchor="middle">10k</text>
+  <line class="wire-red" x1="178" y1="380" x2="140" y2="380"/>
+  <line class="wire-red" x1="140" y1="380" x2="140" y2="92"/>
+  <line class="wire" x1="220" y1="380" x2="105" y2="380"/>
+  <line class="wire" x1="105" y1="380" x2="105" y2="430"/>
+  <!-- push button symbol -->
+  <rect x="78" y="430" width="54" height="34" rx="4" fill="#111b24" stroke="#79c0ff" stroke-width="1.4"/>
+  <line class="wire" x1="92" y1="447" x2="118" y2="447"/>
+  <circle cx="92" cy="447" r="2" fill="#79c0ff"/>
+  <circle cx="118" cy="447" r="2" fill="#79c0ff"/>
+  <text class="label-dim" x="105" y="478" text-anchor="middle">PED</text>
+  <line class="wire-ground" x1="105" y1="464" x2="105" y2="560"/>
+
+  <!-- Helper: LED + resistor pattern -->
+  <!-- NS_RED on RB1 -->
+  <rect class="resistor" x="612" y="200" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="214" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="210" x2="690" y2="210"/>
+  <circle cx="706" cy="210" r="12" fill="#ff6b6b" stroke="#ff3f3f" stroke-width="1.4"/>
+  <text class="label" x="724" y="214">NS_RED</text>
+  <line class="wire-ground" x1="718" y1="210" x2="760" y2="210"/>
+  <line class="wire-ground" x1="760" y1="210" x2="760" y2="560"/>
+
+  <!-- NS_YELLOW on RB2 -->
+  <rect class="resistor" x="612" y="230" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="244" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="240" x2="690" y2="240"/>
+  <circle cx="706" cy="240" r="12" fill="#ffb86b" stroke="#ffa040" stroke-width="1.4"/>
+  <text class="label" x="724" y="244">NS_YEL</text>
+  <line class="wire-ground" x1="718" y1="240" x2="760" y2="240"/>
+
+  <!-- NS_GREEN on RB3 -->
+  <rect class="resistor" x="612" y="260" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="274" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="270" x2="690" y2="270"/>
+  <circle cx="706" cy="270" r="12" fill="#7ee787" stroke="#3aad4b" stroke-width="1.4"/>
+  <text class="label" x="724" y="274">NS_GRN</text>
+  <line class="wire-ground" x1="718" y1="270" x2="760" y2="270"/>
+
+  <!-- EW_RED on RB4 -->
+  <rect class="resistor" x="612" y="290" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="304" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="300" x2="690" y2="300"/>
+  <circle cx="706" cy="300" r="12" fill="#ff6b6b" stroke="#ff3f3f" stroke-width="1.4"/>
+  <text class="label" x="724" y="304">EW_RED</text>
+  <line class="wire-ground" x1="718" y1="300" x2="760" y2="300"/>
+
+  <!-- EW_YELLOW on RB5 -->
+  <rect class="resistor" x="612" y="320" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="334" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="330" x2="690" y2="330"/>
+  <circle cx="706" cy="330" r="12" fill="#ffb86b" stroke="#ffa040" stroke-width="1.4"/>
+  <text class="label" x="724" y="334">EW_YEL</text>
+  <line class="wire-ground" x1="718" y1="330" x2="760" y2="330"/>
+
+  <!-- EW_GREEN on RB6 -->
+  <rect class="resistor" x="612" y="350" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="364" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="360" x2="690" y2="360"/>
+  <circle cx="706" cy="360" r="12" fill="#7ee787" stroke="#3aad4b" stroke-width="1.4"/>
+  <text class="label" x="724" y="364">EW_GRN</text>
+  <line class="wire-ground" x1="718" y1="360" x2="760" y2="360"/>
+
+  <!-- PED_WALK on RD0 -->
+  <rect class="resistor" x="612" y="400" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="414" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="410" x2="690" y2="410"/>
+  <circle cx="706" cy="410" r="12" fill="#cfe7ff" stroke="#79c0ff" stroke-width="1.4"/>
+  <text class="label" x="724" y="414">WALK</text>
+  <line class="wire-ground" x1="718" y1="410" x2="760" y2="410"/>
+
+  <!-- PED_STOP on RD1 -->
+  <rect class="resistor" x="612" y="430" width="36" height="20" rx="3"/>
+  <text class="label-dim" x="630" y="444" text-anchor="middle">330</text>
+  <line class="wire" x1="648" y1="440" x2="690" y2="440"/>
+  <circle cx="706" cy="440" r="12" fill="#ffa27a" stroke="#ff6b3d" stroke-width="1.4"/>
+  <text class="label" x="724" y="444">STOP</text>
+  <line class="wire-ground" x1="718" y1="440" x2="760" y2="440"/>
+
+  <!-- Legend -->
+  <rect x="36" y="510" width="340" height="72" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-accent" x="52" y="530">LEGEND</text>
+  <text class="label-dim" x="52" y="548">- 10k pull-up on MCLR and RB0 pedestrian line</text>
+  <text class="label-dim" x="52" y="562">- 4 MHz crystal + 22 pF caps on OSC1 / OSC2</text>
+  <text class="label-dim" x="52" y="576">- 330 ohm current limit per LED, common cathode to GND</text>
+
+  <rect x="590" y="510" width="330" height="72" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-accent" x="606" y="530">STATE MAP</text>
+  <text class="label-dim" x="606" y="548">NS.GRN -> NS.YEL -> EW.GRN -> EW.YEL -> ...</text>
+  <text class="label-dim" x="606" y="562">PED request serviced at next yellow edge</text>
+  <text class="label-dim" x="606" y="576">PED_WALK is all-red on both axes + walk lamp</text>
+</svg>

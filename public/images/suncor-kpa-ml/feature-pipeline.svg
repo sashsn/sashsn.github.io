@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 540" role="img" aria-label="Predictive KPA identification pipeline: historian telemetry, feature engineering, model training, KPA scoring">
+  <defs>
+    <pattern id="grid-ml" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <marker id="arr-ml" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#79c0ff"/>
+    </marker>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid-ml); }
+      .stage-label { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+      .label-sub { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; }
+      .label-dim { fill: #8a9bb0; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+      .box { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .box-feat { fill: #16222c; stroke: #7ee787; stroke-width: 1.6; }
+      .box-model { fill: #152635; stroke: #79c0ff; stroke-width: 1.6; }
+      .box-out { fill: #1a1a2b; stroke: #d2a8ff; stroke-width: 1.6; }
+      .edge { stroke: #79c0ff; stroke-width: 1.6; fill: none; }
+      .chip { fill: #0f1721; stroke: #223244; }
+      .chip-text { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; }
+      .dot { fill: #79c0ff; }
+      .dot-g { fill: #7ee787; }
+      .dot-a { fill: #ffb86b; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1040" height="540"/>
+  <rect class="grid" width="1040" height="540"/>
+
+  <text class="title" x="36" y="42">PREDICTIVE KPA IDENTIFICATION / SYNCRUDE UPGRADING</text>
+  <text class="title-sub" x="36" y="60">TELEMETRY -&gt; FEATURES -&gt; MODEL -&gt; KPA SCORING</text>
+
+  <text class="stage-label" x="120" y="102" text-anchor="middle">TELEMETRY</text>
+  <text class="stage-label" x="380" y="102" text-anchor="middle">FEATURE ENGINEERING</text>
+  <text class="stage-label" x="660" y="102" text-anchor="middle">MODEL</text>
+  <text class="stage-label" x="920" y="102" text-anchor="middle">KPA SCORING</text>
+
+  <!-- Telemetry -->
+  <rect class="box" x="40" y="130" width="180" height="90" rx="12"/>
+  <text class="label" x="54" y="158">PI System historian</text>
+  <text class="label-sub" x="54" y="178">tag families sampled at</text>
+  <text class="label-sub" x="54" y="192">sub-minute cadence, with</text>
+  <text class="label-sub" x="54" y="206">tag quality + status bits</text>
+
+  <rect class="box" x="40" y="240" width="180" height="80" rx="12"/>
+  <text class="label" x="54" y="268">Experion DCS context</text>
+  <text class="label-sub" x="54" y="288">unit ops, process areas,</text>
+  <text class="label-sub" x="54" y="302">engineering tag metadata</text>
+
+  <rect class="box" x="40" y="340" width="180" height="80" rx="12"/>
+  <text class="label" x="54" y="368">Operator / event log</text>
+  <text class="label-sub" x="54" y="388">labelled disturbances for</text>
+  <text class="label-sub" x="54" y="402">supervised training windows</text>
+
+  <!-- Feature engineering -->
+  <rect class="box-feat" x="290" y="130" width="220" height="290" rx="12"/>
+  <text class="label" x="306" y="158">Feature engineering</text>
+  <text class="label-sub" x="306" y="178">rolling stats, lagged values,</text>
+  <text class="label-sub" x="306" y="192">spectral features, derived</text>
+  <text class="label-sub" x="306" y="206">rate-of-change indicators</text>
+  <rect class="chip" x="306" y="220" width="56" height="20" rx="5"/>
+  <text class="chip-text" x="334" y="234" text-anchor="middle">PANDAS</text>
+  <rect class="chip" x="368" y="220" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="395" y="234" text-anchor="middle">NUMPY</text>
+  <rect class="chip" x="306" y="244" width="84" height="20" rx="5"/>
+  <text class="chip-text" x="348" y="258" text-anchor="middle">SCIKIT-LEARN</text>
+  <rect class="chip" x="306" y="268" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="333" y="282" text-anchor="middle">SCIPY</text>
+  <text class="label-sub" x="306" y="312">window configs</text>
+  <circle cx="318" cy="328" r="4" class="dot-g"/>
+  <text class="label-dim" x="330" y="332">5 min rolling mean / std</text>
+  <circle cx="318" cy="346" r="4" class="dot-g"/>
+  <text class="label-dim" x="330" y="350">30 min trend residuals</text>
+  <circle cx="318" cy="364" r="4" class="dot-g"/>
+  <text class="label-dim" x="330" y="368">tag-pair cross correlation</text>
+  <circle cx="318" cy="382" r="4" class="dot-g"/>
+  <text class="label-dim" x="330" y="386">frequency-band energy ratio</text>
+  <circle cx="318" cy="400" r="4" class="dot-g"/>
+  <text class="label-dim" x="330" y="404">event-window alignment</text>
+
+  <!-- Model -->
+  <rect class="box-model" x="570" y="130" width="200" height="170" rx="12"/>
+  <text class="label" x="586" y="158">Model training</text>
+  <text class="label-sub" x="586" y="178">gradient-boosted classifier</text>
+  <text class="label-sub" x="586" y="192">for KPA membership +</text>
+  <text class="label-sub" x="586" y="206">a regressor for severity</text>
+  <rect class="chip" x="586" y="220" width="60" height="20" rx="5"/>
+  <text class="chip-text" x="616" y="234" text-anchor="middle">XGBOOST</text>
+  <rect class="chip" x="652" y="220" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="687" y="234" text-anchor="middle">LIGHTGBM</text>
+  <rect class="chip" x="586" y="244" width="84" height="20" rx="5"/>
+  <text class="chip-text" x="628" y="258" text-anchor="middle">SCIKIT-LEARN</text>
+  <rect class="chip" x="586" y="268" width="60" height="20" rx="5"/>
+  <text class="chip-text" x="616" y="282" text-anchor="middle">OPTUNA</text>
+
+  <rect class="box-model" x="570" y="320" width="200" height="100" rx="12"/>
+  <text class="label" x="586" y="348">Evaluation</text>
+  <text class="label-sub" x="586" y="368">walk-forward CV across</text>
+  <text class="label-sub" x="586" y="382">labelled event windows</text>
+  <text class="label-sub" x="586" y="396">+ ROC / PR / F1 tracking</text>
+
+  <!-- Output -->
+  <rect class="box-out" x="830" y="130" width="180" height="90" rx="12"/>
+  <text class="label" x="844" y="158">KPA flagging</text>
+  <text class="label-sub" x="844" y="178">tag-level score against</text>
+  <text class="label-sub" x="844" y="192">named process areas with</text>
+  <text class="label-sub" x="844" y="206">confidence thresholds</text>
+
+  <rect class="box-out" x="830" y="240" width="180" height="90" rx="12"/>
+  <text class="label" x="844" y="268">Reviewer surface</text>
+  <text class="label-sub" x="844" y="288">explanations pushed back</text>
+  <text class="label-sub" x="844" y="302">to Power BI + reviewer UI</text>
+  <text class="label-sub" x="844" y="316">alongside existing reports</text>
+
+  <rect class="box-out" x="830" y="350" width="180" height="70" rx="12"/>
+  <text class="label" x="844" y="378">Feedback loop</text>
+  <text class="label-sub" x="844" y="398">operator corrections feed</text>
+  <text class="label-sub" x="844" y="412">retraining batch windows</text>
+
+  <!-- Arrows -->
+  <path class="edge" d="M 220 175 L 290 190" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 220 280 L 290 260" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 220 380 L 290 340" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 510 220 L 570 200" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 510 360 L 570 370" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 770 200 L 830 175" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 770 260 L 830 280" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 770 380 L 830 385" marker-end="url(#arr-ml)"/>
+  <path class="edge" d="M 920 330 C 960 420, 700 480, 420 420" marker-end="url(#arr-ml)"/>
+
+  <rect x="40" y="470" width="970" height="48" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-dim" x="56" y="494">// internal R/D work. architecture shown at a public-safe level. no customer data, no tag names, no tuned thresholds.</text>
+  <text class="label-dim" x="56" y="508">// KPA = key process area (named operating section of the upgrader). scores feed existing engineering review, not a live control loop.</text>
+</svg>

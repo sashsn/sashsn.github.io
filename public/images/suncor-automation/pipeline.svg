@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" role="img" aria-label="Suncor automation and reporting pipeline: PI System, Honeywell Experion DCS, engineering sources, Python validation, M Query, SQL, Power BI dashboards">
+  <defs>
+    <pattern id="grid-su" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#79c0ff"/>
+    </marker>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid-su); }
+      .box { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .box-accent { fill: #152635; stroke: #79c0ff; stroke-width: 1.6; }
+      .box-validate { fill: #16222c; stroke: #7ee787; stroke-width: 1.6; }
+      .box-report { fill: #1a1a2b; stroke: #d2a8ff; stroke-width: 1.6; }
+      .edge { stroke: #79c0ff; stroke-width: 1.6; fill: none; }
+      .stage-label { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+      .label-sub { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; }
+      .label-dim { fill: #8a9bb0; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+      .chip { fill: #0f1721; stroke: #223244; }
+      .chip-text { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1040" height="560"/>
+  <rect class="grid" width="1040" height="560"/>
+
+  <text class="title" x="36" y="42">AUTOMATION + REPORTING PIPELINE / SYNCRUDE UPGRADING</text>
+  <text class="title-sub" x="36" y="60">SOURCES . VALIDATION . WAREHOUSE . DASHBOARD</text>
+
+  <!-- Stage rails -->
+  <text class="stage-label" x="120" y="102" text-anchor="middle">SOURCES</text>
+  <text class="stage-label" x="380" y="102" text-anchor="middle">VALIDATE + TRANSFORM</text>
+  <text class="stage-label" x="650" y="102" text-anchor="middle">WAREHOUSE</text>
+  <text class="stage-label" x="900" y="102" text-anchor="middle">REPORTING SURFACE</text>
+
+  <!-- Sources column -->
+  <rect class="box" x="40" y="130" width="180" height="70" rx="12"/>
+  <text class="label" x="54" y="158">Honeywell Experion</text>
+  <text class="label-sub" x="54" y="178">DCS tag metadata, control</text>
+  <text class="label-sub" x="54" y="192">structures, CLM exports</text>
+
+  <rect class="box" x="40" y="220" width="180" height="70" rx="12"/>
+  <text class="label" x="54" y="248">PI System historian</text>
+  <text class="label-sub" x="54" y="268">time-series telemetry,</text>
+  <text class="label-sub" x="54" y="282">tag values, alarm events</text>
+
+  <rect class="box" x="40" y="310" width="180" height="70" rx="12"/>
+  <text class="label" x="54" y="338">Engineering sources</text>
+  <text class="label-sub" x="54" y="358">Excel registers, P&amp;IDs,</text>
+  <text class="label-sub" x="54" y="372">reviewer markups, SharePoint</text>
+
+  <rect class="box" x="40" y="400" width="180" height="70" rx="12"/>
+  <text class="label" x="54" y="428">Operator notes</text>
+  <text class="label-sub" x="54" y="448">field feedback, CLM-to-SCADA</text>
+  <text class="label-sub" x="54" y="462">conversion corrections</text>
+
+  <!-- Validate column -->
+  <rect class="box-validate" x="300" y="130" width="200" height="160" rx="12"/>
+  <text class="label" x="316" y="156">Python validation tool</text>
+  <text class="label-sub" x="316" y="176">reference-check engine for</text>
+  <text class="label-sub" x="316" y="190">DCS tag integrity across</text>
+  <text class="label-sub" x="316" y="204">heterogeneous sources</text>
+  <rect class="chip" x="316" y="218" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="343" y="232" text-anchor="middle">PYTHON</text>
+  <rect class="chip" x="376" y="218" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="403" y="232" text-anchor="middle">PANDAS</text>
+  <rect class="chip" x="316" y="242" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="343" y="256" text-anchor="middle">REGEX</text>
+  <rect class="chip" x="376" y="242" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="411" y="256" text-anchor="middle">OPENPYXL</text>
+
+  <rect class="box-validate" x="300" y="310" width="200" height="160" rx="12"/>
+  <text class="label" x="316" y="336">Transforms + macros</text>
+  <text class="label-sub" x="316" y="356">M Query shaping, VBA for</text>
+  <text class="label-sub" x="316" y="370">operator-facing workbooks,</text>
+  <text class="label-sub" x="316" y="384">shell scripts for batch runs</text>
+  <rect class="chip" x="316" y="398" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="351" y="412" text-anchor="middle">M QUERY</text>
+  <rect class="chip" x="392" y="398" width="40" height="20" rx="5"/>
+  <text class="chip-text" x="412" y="412" text-anchor="middle">VBA</text>
+  <rect class="chip" x="316" y="422" width="54" height="20" rx="5"/>
+  <text class="chip-text" x="343" y="436" text-anchor="middle">SHELL</text>
+
+  <!-- Warehouse column -->
+  <rect class="box-accent" x="570" y="200" width="190" height="160" rx="12"/>
+  <text class="label" x="586" y="226">Warehouse</text>
+  <text class="label-sub" x="586" y="246">curated SQL tables for</text>
+  <text class="label-sub" x="586" y="260">validated tags, mappings,</text>
+  <text class="label-sub" x="586" y="274">and reviewer deltas</text>
+  <rect class="chip" x="586" y="290" width="40" height="20" rx="5"/>
+  <text class="chip-text" x="606" y="304" text-anchor="middle">SQL</text>
+  <rect class="chip" x="632" y="290" width="80" height="20" rx="5"/>
+  <text class="chip-text" x="672" y="304" text-anchor="middle">POWER QUERY</text>
+  <rect class="chip" x="586" y="314" width="100" height="20" rx="5"/>
+  <text class="chip-text" x="636" y="328" text-anchor="middle">INTERNAL STORE</text>
+
+  <!-- Reporting column -->
+  <rect class="box-report" x="830" y="130" width="180" height="90" rx="12"/>
+  <text class="label" x="844" y="158">Power BI dashboards</text>
+  <text class="label-sub" x="844" y="178">cross-section views across</text>
+  <text class="label-sub" x="844" y="192">tag families, unit ops,</text>
+  <text class="label-sub" x="844" y="206">and review progress</text>
+
+  <rect class="box-report" x="830" y="240" width="180" height="90" rx="12"/>
+  <text class="label" x="844" y="268">Reviewer reports</text>
+  <text class="label-sub" x="844" y="288">engineering QA sign-off</text>
+  <text class="label-sub" x="844" y="302">with drill-down on deltas</text>
+  <text class="label-sub" x="844" y="316">and outstanding items</text>
+
+  <rect class="box-report" x="830" y="350" width="180" height="90" rx="12"/>
+  <text class="label" x="844" y="378">Conversion deliverable</text>
+  <text class="label-sub" x="844" y="398">4,000+ tag CLM-to-SCADA</text>
+  <text class="label-sub" x="844" y="412">mapping set, validated and</text>
+  <text class="label-sub" x="844" y="426">traceable to source</text>
+
+  <!-- Arrows: sources -> validate -->
+  <path class="edge" d="M 220 165 L 300 185" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 220 255 L 300 230" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 220 345 L 300 365" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 220 435 L 300 420" marker-end="url(#arr-blue)"/>
+
+  <!-- validate -> warehouse -->
+  <path class="edge" d="M 500 210 L 570 250" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 500 390 L 570 320" marker-end="url(#arr-blue)"/>
+
+  <!-- warehouse -> reports -->
+  <path class="edge" d="M 760 235 L 830 175" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 760 280 L 830 285" marker-end="url(#arr-blue)"/>
+  <path class="edge" d="M 760 325 L 830 395" marker-end="url(#arr-blue)"/>
+
+  <!-- Note band -->
+  <rect x="40" y="500" width="970" height="40" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-dim" x="56" y="524">// internal tooling -- architecture shown at a level appropriate for public sharing. no customer data, no proprietary mapping rules.</text>
+</svg>

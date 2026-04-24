@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-label="Traffic control state machine: NS green, NS yellow, EW green, EW yellow, pedestrian walk, pedestrian clear">
+  <defs>
+    <pattern id="grid-sm" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#79c0ff"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#ffb86b"/>
+    </marker>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid-sm); }
+      .state { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .state-accent { fill: #152635; stroke: #79c0ff; stroke-width: 1.6; }
+      .state-ped { fill: #16222c; stroke: #d2a8ff; stroke-width: 1.6; }
+      .edge { stroke: #79c0ff; stroke-width: 1.6; fill: none; }
+      .edge-amber { stroke: #ffb86b; stroke-width: 1.6; fill: none; stroke-dasharray: 6 5; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+      .label-sub { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; }
+      .edge-label { fill: #79c0ff; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; }
+      .edge-label-amber { fill: #ffb86b; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="960" height="520"/>
+  <rect class="grid" width="960" height="520"/>
+
+  <text class="title" x="36" y="42">STATE MACHINE / INTERSECTION CONTROLLER</text>
+  <text class="title-sub" x="36" y="60">4 PRIMARY PHASES + 2 PEDESTRIAN PHASES . TIMES IN SECONDS</text>
+
+  <!-- NS_GREEN -->
+  <rect class="state-accent" x="80" y="130" width="190" height="70" rx="14"/>
+  <text class="label" x="175" y="162" text-anchor="middle">NS_GREEN</text>
+  <text class="label-sub" x="175" y="180" text-anchor="middle">t = 12 s</text>
+
+  <!-- NS_YELLOW -->
+  <rect class="state" x="385" y="130" width="190" height="70" rx="14"/>
+  <text class="label" x="480" y="162" text-anchor="middle">NS_YELLOW</text>
+  <text class="label-sub" x="480" y="180" text-anchor="middle">t = 3 s</text>
+
+  <!-- EW_GREEN -->
+  <rect class="state-accent" x="690" y="130" width="190" height="70" rx="14"/>
+  <text class="label" x="785" y="162" text-anchor="middle">EW_GREEN</text>
+  <text class="label-sub" x="785" y="180" text-anchor="middle">t = 12 s</text>
+
+  <!-- EW_YELLOW -->
+  <rect class="state" x="385" y="320" width="190" height="70" rx="14"/>
+  <text class="label" x="480" y="352" text-anchor="middle">EW_YELLOW</text>
+  <text class="label-sub" x="480" y="370" text-anchor="middle">t = 3 s</text>
+
+  <!-- PED_WALK -->
+  <rect class="state-ped" x="80" y="320" width="190" height="70" rx="14"/>
+  <text class="label" x="175" y="352" text-anchor="middle">PED_WALK</text>
+  <text class="label-sub" x="175" y="370" text-anchor="middle">all-red . walk . 10 s</text>
+
+  <!-- PED_CLEAR -->
+  <rect class="state-ped" x="690" y="320" width="190" height="70" rx="14"/>
+  <text class="label" x="785" y="352" text-anchor="middle">PED_CLEAR</text>
+  <text class="label-sub" x="785" y="370" text-anchor="middle">all-red . flash . 3 s</text>
+
+  <!-- Edges between primary states -->
+  <path class="edge" d="M 270 165 L 385 165" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="327" y="158" text-anchor="middle">phase end</text>
+
+  <path class="edge" d="M 575 165 L 690 165" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="632" y="158" text-anchor="middle">phase end</text>
+
+  <path class="edge" d="M 785 200 C 785 260, 580 260, 575 320" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="720" y="258">phase end</text>
+
+  <path class="edge" d="M 385 355 C 290 355, 180 265, 175 200" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="245" y="250">phase end</text>
+
+  <!-- Pedestrian branches from yellow states -->
+  <path class="edge-amber" d="M 385 185 C 300 240, 230 280, 185 320" marker-end="url(#arrow-amber)"/>
+  <text class="edge-label-amber" x="290" y="240">ped_request ==1</text>
+
+  <path class="edge-amber" d="M 575 350 C 640 350, 690 340, 780 320" marker-end="url(#arrow-amber)"/>
+  <text class="edge-label-amber" x="660" y="335">ped_request ==1</text>
+
+  <!-- Pedestrian return -->
+  <path class="edge" d="M 270 355 C 360 355, 400 345, 480 320" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="360" y="380">clear</text>
+
+  <path class="edge" d="M 690 355 C 620 355, 570 340, 480 320" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="600" y="380">clear</text>
+
+  <!-- Legend -->
+  <rect x="36" y="430" width="888" height="60" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <circle cx="60" cy="452" r="6" fill="#79c0ff"/>
+  <text class="label-sub" x="76" y="456">primary cycle: NS_GREEN -&gt; NS_YELLOW -&gt; EW_GREEN -&gt; EW_YELLOW -&gt; NS_GREEN</text>
+  <circle cx="60" cy="476" r="6" fill="#ffb86b"/>
+  <text class="label-sub" x="76" y="480">pedestrian branch: armed by RB0/INT edge, serviced at the next yellow boundary, never preempts a green</text>
+</svg>

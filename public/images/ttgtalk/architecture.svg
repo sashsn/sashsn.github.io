@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" role="img" aria-label="TTGTalk architecture: React client, Node + Express REST, Socket.IO realtime layer, PostgreSQL, contract rendering service">
+  <defs>
+    <pattern id="grid-tt" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#17202c" stroke-width="0.6"/>
+    </pattern>
+    <marker id="arr-tt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#79c0ff"/>
+    </marker>
+    <style>
+      .bg { fill: #0a1017; }
+      .grid { fill: url(#grid-tt); }
+      .title { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+      .title-sub { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; }
+      .stage-label { fill: #7ca5d1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; }
+      .label { fill: #e2ebf5; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+      .label-sub { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; }
+      .label-dim { fill: #8a9bb0; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+      .box { fill: #10202b; stroke: #4b6a8a; stroke-width: 1.4; }
+      .box-client { fill: #152635; stroke: #79c0ff; stroke-width: 1.6; }
+      .box-rest { fill: #16222c; stroke: #7ee787; stroke-width: 1.6; }
+      .box-rt { fill: #1a2028; stroke: #ffb86b; stroke-width: 1.6; }
+      .box-db { fill: #1a1a2b; stroke: #d2a8ff; stroke-width: 1.6; }
+      .edge { stroke: #79c0ff; stroke-width: 1.6; fill: none; }
+      .edge-rt { stroke: #ffb86b; stroke-width: 1.6; fill: none; stroke-dasharray: 6 5; }
+      .chip { fill: #0f1721; stroke: #223244; }
+      .chip-text { fill: #9fb0c4; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1040" height="560"/>
+  <rect class="grid" width="1040" height="560"/>
+
+  <text class="title" x="36" y="42">TTGTALK / INTERNAL CHAT + CONTRACT GENERATION</text>
+  <text class="title-sub" x="36" y="60">REST FOR DATA . WEBSOCKET FOR LIVE MESSAGES . SERVER-RENDERED CONTRACTS</text>
+
+  <text class="stage-label" x="140" y="102" text-anchor="middle">CLIENT</text>
+  <text class="stage-label" x="430" y="102" text-anchor="middle">APPLICATION</text>
+  <text class="stage-label" x="720" y="102" text-anchor="middle">SERVICES</text>
+  <text class="stage-label" x="940" y="102" text-anchor="middle">DATA</text>
+
+  <!-- Client -->
+  <rect class="box-client" x="40" y="130" width="200" height="120" rx="12"/>
+  <text class="label" x="56" y="158">React SPA</text>
+  <text class="label-sub" x="56" y="178">threaded chat, contract</text>
+  <text class="label-sub" x="56" y="192">templates, sign flow,</text>
+  <text class="label-sub" x="56" y="206">role-aware admin views</text>
+  <rect class="chip" x="56" y="218" width="50" height="20" rx="5"/>
+  <text class="chip-text" x="81" y="232" text-anchor="middle">REACT</text>
+  <rect class="chip" x="112" y="218" width="70" height="20" rx="5"/>
+  <text class="chip-text" x="147" y="232" text-anchor="middle">SOCKET.IO</text>
+
+  <rect class="box-client" x="40" y="270" width="200" height="90" rx="12"/>
+  <text class="label" x="56" y="298">Admin console</text>
+  <text class="label-sub" x="56" y="318">workspaces, members,</text>
+  <text class="label-sub" x="56" y="332">template library curation</text>
+
+  <!-- Application (REST + realtime) -->
+  <rect class="box-rest" x="320" y="130" width="230" height="130" rx="12"/>
+  <text class="label" x="336" y="158">Node + Express REST</text>
+  <text class="label-sub" x="336" y="178">threads, members, templates,</text>
+  <text class="label-sub" x="336" y="192">contracts, signatures, auth</text>
+  <rect class="chip" x="336" y="204" width="50" height="20" rx="5"/>
+  <text class="chip-text" x="361" y="218" text-anchor="middle">NODE</text>
+  <rect class="chip" x="392" y="204" width="62" height="20" rx="5"/>
+  <text class="chip-text" x="423" y="218" text-anchor="middle">EXPRESS</text>
+  <rect class="chip" x="336" y="228" width="40" height="20" rx="5"/>
+  <text class="chip-text" x="356" y="242" text-anchor="middle">JWT</text>
+  <rect class="chip" x="382" y="228" width="50" height="20" rx="5"/>
+  <text class="chip-text" x="407" y="242" text-anchor="middle">BCRYPT</text>
+
+  <rect class="box-rt" x="320" y="280" width="230" height="100" rx="12"/>
+  <text class="label" x="336" y="308">Socket.IO layer</text>
+  <text class="label-sub" x="336" y="328">per-thread rooms, presence,</text>
+  <text class="label-sub" x="336" y="342">typing indicators, ack-based</text>
+  <text class="label-sub" x="336" y="356">delivery receipts</text>
+
+  <!-- Services -->
+  <rect class="box-rest" x="620" y="130" width="200" height="110" rx="12"/>
+  <text class="label" x="636" y="158">Contract service</text>
+  <text class="label-sub" x="636" y="178">fill template fields,</text>
+  <text class="label-sub" x="636" y="192">render to PDF, store</text>
+  <text class="label-sub" x="636" y="206">signed artifact</text>
+  <rect class="chip" x="636" y="212" width="72" height="20" rx="5"/>
+  <text class="chip-text" x="672" y="226" text-anchor="middle">HANDLEBARS</text>
+  <rect class="chip" x="714" y="212" width="60" height="20" rx="5"/>
+  <text class="chip-text" x="744" y="226" text-anchor="middle">PDFKIT</text>
+
+  <rect class="box-rest" x="620" y="260" width="200" height="100" rx="12"/>
+  <text class="label" x="636" y="288">Signature service</text>
+  <text class="label-sub" x="636" y="308">typed signature capture,</text>
+  <text class="label-sub" x="636" y="322">cryptographic hash of the</text>
+  <text class="label-sub" x="636" y="336">signed PDF bytes</text>
+
+  <!-- Data -->
+  <rect class="box-db" x="860" y="130" width="150" height="110" rx="12"/>
+  <text class="label" x="876" y="158">PostgreSQL</text>
+  <text class="label-sub" x="876" y="178">users, threads,</text>
+  <text class="label-sub" x="876" y="192">messages, templates,</text>
+  <text class="label-sub" x="876" y="206">contracts, signatures</text>
+
+  <rect class="box-db" x="860" y="260" width="150" height="100" rx="12"/>
+  <text class="label" x="876" y="288">Object store</text>
+  <text class="label-sub" x="876" y="308">generated PDFs,</text>
+  <text class="label-sub" x="876" y="322">attachments,</text>
+  <text class="label-sub" x="876" y="336">per-workspace path</text>
+
+  <rect class="box-db" x="860" y="380" width="150" height="80" rx="12"/>
+  <text class="label" x="876" y="408">Redis</text>
+  <text class="label-sub" x="876" y="428">socket presence,</text>
+  <text class="label-sub" x="876" y="442">pub/sub fan-out</text>
+
+  <!-- Arrows: REST path -->
+  <path class="edge" d="M 240 180 L 320 185" marker-end="url(#arr-tt)"/>
+  <path class="edge" d="M 550 180 L 620 180" marker-end="url(#arr-tt)"/>
+  <path class="edge" d="M 820 180 L 860 180" marker-end="url(#arr-tt)"/>
+  <path class="edge" d="M 550 220 L 860 210" marker-end="url(#arr-tt)"/>
+
+  <!-- Signature + object store -->
+  <path class="edge" d="M 820 300 L 860 290" marker-end="url(#arr-tt)"/>
+  <path class="edge" d="M 820 320 L 860 310" marker-end="url(#arr-tt)"/>
+
+  <!-- Realtime path -->
+  <path class="edge-rt" d="M 240 320 L 320 320"/>
+  <path class="edge-rt" d="M 550 330 L 860 410"/>
+
+  <rect x="36" y="480" width="968" height="60" rx="10" fill="#0f1721" stroke="#223244" stroke-width="1"/>
+  <text class="label-dim" x="56" y="504">// internal org tool. architecture-level only. no message content, workspace names, or template content shown.</text>
+  <text class="label-dim" x="56" y="520">// blue = REST / HTTP + database writes . amber dashed = realtime channel (Socket.IO + Redis pub/sub)</text>
+</svg>
